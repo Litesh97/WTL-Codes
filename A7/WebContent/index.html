@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.form1 {
+width: 50%;
+height: auto;
+padding: 8px;
+margine: 5px;
+border: 2px solid black;
+}
+
+th {
+padding: 6px;
+text-align: right;
+}
+
+td {
+padding: 6px;
+}
+
+.but1 {
+height: 30px;
+width: 200px;
+}
+</style>
+
+</head>
+<body>
+	<center>
+			<center><h1>Form</h1></center>
+			<form action="process.jsp" method="POST" class="form1" >
+			<table>
+			<tr>
+			<th>Veg Starter</th>
+			<td><select name="veg" id="veg">
+					<option value="manchurian">Manchurian</option>
+					<option value="starpanner">panner</option>
+					<option value="crispy">crispy</option>	
+			</select> </td>
+			</tr>
+			
+			<tr>
+				<th>Quantity of veg Starter</th>
+				<td><input type="number" name="qvstarter" id="qvstarter" required> </td>
+			</tr>
+			
+			<tr>
+			<th>Non Veg Starter</th>
+			<td><select name="non" id="non">
+					<option value="nmanchurian">Non Manchurian</option>
+					<option value="nstarpanner">Non panner</option>
+					<option value="ncrispy">Non crispy</option>	
+			</select> </td>
+			</tr>
+			
+			<tr>
+				<th>Quantity of Non veg Starter</th>
+				<td><input type="number" name="qnstarter" id="qnstarter" required> </td>
+			</tr>
+			
+			<tr>
+			<th>Main Course</th>
+			<td><select name="main" id="main">
+					<option value="panner">Panner</option>
+					<option value="chole">Chole</option>
+					<option value="mashroom">Mashroom</option>	
+			</select> </td>
+			</tr>
+			
+			<tr>
+				<th>Quantity of Main Course</th>
+				<td><input type="number" name="qmain" id="qmain" required> </td>
+			</tr>
+			
+			<tr><td colspan="2" align="center"><input type="submit" value="Submit" class="but1"></td>
+			
+			</table>
+			
+			</form>	
+	</center>
+
+
+</body>
+</html>

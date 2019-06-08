@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Registeration</title>
+<style>
+
+.form1 {
+width: 50%;
+height: auto;
+display: block;
+margin: 5px;
+padding:7px;
+border: 2px solid black;
+border-radius: 10px;
+
+}
+
+th {
+padding: 6px;
+text-align: right;
+margin-right: 3px;
+}
+
+td {
+padding: 8px;
+
+}
+
+.but1 {
+width: 240px;
+background-color: green;
+height: 30px;
+color: white;
+}
+
+.but1:hover {
+background-color: black;
+
+}
+
+</style>
+
+<script>
+
+function validatefun()
+{
+var name = document.getElementById("name").value;
+var email = document.getElementById("email").value;
+var no = document.getElementById("no").value;
+var designation = document.forms["myform"]["designation"];
+var country = document.getElementById("country").value;
+
+
+if(name=="")
+{
+alert("Please enter your name first!");
+return false;
+}
+
+if(!(/^[a-zA-Z]+$/.test(name)))
+{
+alert("Please enter your valid name!");
+return false;
+}
+
+if(email=="")
+{
+alert("Please enter your email-id first!");
+return false;
+}
+
+if(email.indexOf("@",0) < 0)
+{
+alert("Please enter your valid Email-id");
+return false;
+}
+
+if(email.indexOf(".",0) < 0)
+{
+alert("Please enter your valid Email-id");
+return false;
+}
+
+if(no=="")
+{
+alert("Please enter your Phone-Number");
+return false;
+}
+
+var lenno= no.length;
+
+if(lenno!=10)
+{
+alert("Please enter valid Phone-Number");
+return false;
+}
+
+
+
+return true;
+}
+</script>
+</head>
+<body>
+
+	<center>
+		<center><h1>Registeration</h1></center>
+	   <form id="myform" class="form1" onsubmit="return validatefun()" method="POST" action="pay.html" >
+		<table>
+	   		<tr>
+				<th>Name</th>
+				<td><input type="text" name="name" id="name" placeholder="Enter your name" ></td>
+			</tr>
+
+			<tr>
+				<th>Email</th>
+				<td><input type="text" name="email" id="email" placeholder="Enter your Email-id" ></td>
+			</tr>
+
+			<tr>
+				<th>Phone Number</th>
+				<td><input type="number" name="no" id="no" placeholder="Enter your phone number" style="width: 230px;" s></td>
+			</tr>
+
+			<tr>
+				<th>Designation</th>
+				<td><select name="designation">
+						<option value="Student">Student</option>
+						<option value="Faculty">Faculty Member</option>
+						<option value="Professional">Professional</option>
+						<option value="Representative">Company Reprentative</option>   </td>
+			</tr>
+
+			<tr>
+				<th>Country</th>
+				<td><input type="radio" name="country" id="country" value="India" checked="checked">India</td>
+			</tr>
+
+				<tr><th></th><td><input type="radio" name="country" id="country" value="USA">USA</td></tr>
+				<tr><th></th><td><input type="radio" name="country" id="country" value="China">China</td></tr>
+				<tr><th></th><td><input type="radio" name="country" id="country" value="Other">Other</td></tr>
+
+			<tr><td colspan="2" align="center"><input class="but1" type="reset" value="reset"></td></tr>
+			<tr><td colspan="2" align="center"><input class="but1" type="submit" value="Submit"></td></tr>
+
+
+
+		</table>
+	   </form>
+	</center>
+
+
+</body>
+<html>

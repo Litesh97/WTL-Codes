@@ -1,0 +1,124 @@
+	<!DOCTYPE html>
+<html>
+<head>
+<title>Records</title>
+<style>
+
+.form1 {
+width: 30%;
+height: auto;
+display: block;
+margin: 5px;
+padding:20px;
+border: 2px solid black;
+border-radius: 10px;
+
+}
+
+th {
+padding: 6px;
+text-align: right;
+margin-right: 3px;
+}
+
+input {
+padding: 8px;
+
+}
+
+td {
+padding: 8px;
+
+}
+
+.but1 {
+width: 240px;
+background-color: green;
+height: 35px;
+color: white;
+}
+
+.but1:hover {
+background-color: black;
+
+}
+
+#mytable {
+padding: 5px;
+width:30%;
+text-align: center;
+}
+
+</style>
+
+
+<script>
+function validatefun() {
+
+var tab_cont = document.getElementById("mytable").innerHTML;
+var name= document.getElementById("name").value;
+var daa= parseInt(document.getElementById("daa").value);
+var smd= parseInt(document.getElementById("smd").value);
+var spos= parseInt(document.getElementById("spos").value);
+var esiot= parseInt(document.getElementById("esiot").value);
+var wt= parseInt(document.getElementById("wt").value);
+
+var perc = (((daa+smd+spos+esiot+wt)/500)*100);
+
+var record = "<tr><td>"+name+"</td><td>"+daa+"</td><td>"+smd+"</td><td>"+spos+"</td><td>"+esiot+"</td><td>"+wt+"</td><td>"+perc.toFixed(2)+"</td></tr>";
+tab_cont = tab_cont+record;
+
+document.getElementById("mytable").innerHTML=tab_cont;
+return false;
+}
+</script>
+
+</head>
+<body>
+
+
+		<center><h1>Marks </h1></center>
+	   <form id="myform" class="form1" onsubmit="return validatefun()" method="POST">
+		<table>
+	   		<tr>
+				<th>Name</th>
+				<td><input type="text" name="name" id="name" placeholder="Enter your name" required></td>
+			</tr>
+
+			<tr>
+				<th>DAA</th>
+				<td><input type="number" name="daa" id="daa" placeholder="00" max="100" min="0" required></td>
+			</tr>
+
+			<tr>
+				<th>SMD</th>
+				<td><input type="number" name="smd" id="smd" placeholder="00" max="100" min="0" required></td>
+			</tr>
+
+			<tr>
+				<th>SPOS</th>
+				<td><input type="number" name="spos" id="spos" placeholder="00" max="100" min="0" required></td>
+			</tr>
+
+			<tr>
+				<th>ESIOT</th>
+				<td><input type="number" name="esiot" id="esiot" placeholder="00" max="100" min="0" required></td>
+			</tr>
+
+			<tr>
+				<th>WT</th>
+				<td><input type="number" name="wt" id="wt" placeholder="00" max="100" min="0" required></td>
+			</tr>
+
+			<tr><td colspan="2" align="center"><input class="but1" type="reset" value="reset"></td></tr>
+			<tr><td colspan="2" align="center"><input class="but1" type="submit" value="Submit"></td></tr>
+		</table>
+	   </form>
+
+<h1>Result:</h1>
+<table id="mytable">
+<tr><th>Name</th><th>DAA</th><th>SMD</th><th>SPOS</th><th>ESIOT</th><th>WT</th><th>Percentage</th></tr>
+</table>
+
+</body>
+<html>

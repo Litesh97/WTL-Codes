@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head><title>XML</title>
+
+<style>
+
+th,tr,td {
+padding:5px;
+margin: 5px;
+
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Employees</h1>
+<table id="emptab">
+<tr><th>ID</th><th>NAME</th><th>DEPARTMENT<th>SALARY</th></tr>
+</table>
+
+<table id="avglist">
+<tr><th>Department</th><th>Count of Employee<th>AVG-SALARY</th></tr>
+</table>
+
+<script type="text/javascript">
+
+var xhttp= new XMLHttpRequest();
+
+xhttp.onreadystatechange= function()
+	{
+		if (this.readyState==4 && this.status==200) {
+			
+			processFile(this);
+		}
+	};
+
+xhttp.open("GET", "employee.xml", true);
+	xhttp.send();
+
+
+function processFile(xml)
+{
+		
+	var xmlCont = xml.responseXML;
+
+	var table1 = document.getElementById("emptab").innerHTML;
+	var empArray= xmlCont.getElementsByTagName("employee");
+	
+	var comptot=0,entctot=0,mltot=0;
+	var compcnt=0,entccnt=0,mlcnt=0;
+	
+	for(var i=0;i<empArray.length;i++)
+		{	
+			
+			var name= empArray[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+			var id= empArray[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+			var department= empArray[i].getElementsByTagName("department")[0].childNodes[0].nodeValue;
+			var salary= parseInt(empArray[i].getElementsByTagName("salary")[0].childNodes[0].nodeValue);
+			
+			switch(department)
+			{
+				
+				case "Comp": 
+					comptot=comptot+salary;
+					compcnt=compcnt+1;
+					break;
+
+				case "Entc": 
+					entctot=entctot+salary;
+					entccnt=entccnt+1;
+					break;
+
+				
+				case "ML": 
+					mltot=mltot+salary;
+					mlcnt=mlcnt+1;
+					break;
+
+			
+			}
+		var record="<tr><td>"+id+"</td><td>"+name+"</td><td>"+department+"</td><td>"+salary+"</td></tr>";
+		table1=table1+record;
+		document.getElementById("emptab").innerHTML=table1;
+		
+		}
+
+		var avgComp=(comptot)/compcnt;
+		var avgEntc=(entctot)/entccnt;
+		var avgML=(mltot)/mlcnt;
+
+		var table2= document.getElementById("avglist").innerHTML;
+		table2=table2+ "<tr><td>Comp</td><td>"+compcnt+"</td><td>"+avgComp+"</td><tr>";
+		table2=table2+ "<tr><td>Entc</td><td>"+entccnt+"</td><td>"+avgEntc+"</td><tr>";
+		table2=table2+ "<tr><td>Comp</td><td>"+mlcnt+"</td><td>"+avgML+"</td><tr>";
+
+		document.getElementById("avglist").innerHTML=table2;
+
+}
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlet</title>
+<style>
+.form1 {
+width: 50%;
+height: auto;
+padding: 8px;
+margine: 5px;
+border: 2px solid black;
+}
+
+th {
+padding: 6px;
+text-align: right;
+}
+
+td {
+padding: 6px;
+}
+
+.but1 {
+height: 30px;
+width: 200px;
+}
+</style>
+</head>
+<body>
+<center>
+<center><h1>Form</h1></center>
+<form action="addd" method="POST" class="form1">
+<table>
+	<tr>
+	<th>Name</th>
+	<td><input type="text" name="name" id="name" required> </td>
+	</tr>
+	
+	<tr>
+	<th>Income</th>
+	<td><input type="number" name="income" id="income" min="0" required> </td>
+	</tr>
+	
+	<tr>
+	<td colspan="2" align="center"><input type="submit" value="Submit" class="but1">
+	</tr>
+</table>
+</form>
+</center>
+
+</body>
+</html>

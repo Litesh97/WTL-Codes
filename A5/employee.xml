@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+	<employee>
+	<id>1</id>
+	<name>Aakash</name>
+	<department>Comp</department>
+	<salary>50000</salary>
+	</employee>
+
+	<employee>
+	<id>2</id>
+	<name>Nikhil</name>
+	<department>Entc</department>
+	<salary>30000</salary>
+	</employee>
+
+	<employee>
+	<id>3</id>
+	<name>Litesh</name>
+	<department>Comp</department>
+	<salary>70000</salary>
+	</employee>
+
+	<employee>
+	<id>4</id>
+	<name>Vindeep</name>
+	<department>ML</department>
+	<salary>90000</salary>
+	</employee>
+
+	<employee>
+	<id>5</id>
+	<name>Rohit</name>
+	<department>Entc</department>
+	<salary>50000</salary>
+	</employee>
+
+	<employee>
+	<id>6</id>
+	<name>Sohel</name>
+	<department>ML</department>
+	<salary>80000</salary>
+	</employee>
+
+	<employee>	
+	<id>7</id>
+	<name>onkar</name>
+	<department>Entc</department>
+	<salary>50000</salary>
+	</employee>
+
+	<employee>
+	<id>8</id>
+	<name>Roshan</name>
+	<department>ML</department>
+	<salary>80000</salary>
+	</employee>
+
+</employees>

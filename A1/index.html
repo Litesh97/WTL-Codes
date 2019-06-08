@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>prac</title>
+<style>
+.form1 {
+width:50%;
+padding: 6px;
+border: 2px solid black;
+margin: 5px;
+}
+
+th {
+padding: 5px;
+text-align: right;
+}
+
+td {
+padding: 5px;
+}
+
+</style>
+</head>
+
+<body>
+<form class="form1" onsubmit="parsing()" >
+<table>
+	<tr>
+	<th>Name</th>
+	<td><input type="text" name="name" id="name" placeholder="name"></td>
+	</tr>
+
+	<tr>
+	<th>Address</th>
+	<td><input type="text" name="address" id="address" placeholder="address"></td>
+	</tr>
+
+	<tr>
+	<th>Gender</th>
+	<td><input type="radio" name="gender" id="gender" value="male" checked="checked">Male</td></tr>
+	<tr><th></th>
+	<td><input type="radio" name="gender" id="gender" value="female" >female</td></tr>
+	<tr><th></th>
+	<td><input type="radio" name="gender" id="gender" value="other">Other</td>
+	</tr>
+
+	<tr>
+	<th>Languages</th>
+	<td><select id="language" name="language">
+		<option value="english">English</option>
+		<option value="hindi">Hindi</option>
+		<option value="marathi">Marathi</option>
+	</select>
+	</td>
+	</tr>
+
+	<tr>
+	<th>City</th>
+	<td><input type="text" name="city" id="city" placeholder="city"></td>
+	</tr>
+
+	<tr>
+	<th></th>
+	<td><input type="reset" name="reset" id="reset" ></td>
+	</tr>
+
+	<tr>
+	<th></th>
+	<td><input type="submit"  value="Submit"></td>
+	</tr>
+
+
+</table>
+</form>
+
+
+<script>
+function parsing()
+{
+
+var parser,xmldoc;
+var text = "<?xml version='1.0' encoding='UTF-8'?> <?xml-stylesheet  type='text/xsl' href='abcd.xsl'?> "+
+		"<Customer>"+
+		"<name>Default</name>"+
+		"<address>Default</address>"+
+		"<gender>Default</gender>"+
+		"<language>Default</language>"+
+		"<city>Default</city>"+
+		"</Customer>";
+
+
+parser = new DOMParser();
+xmldoc= parser.parseFromString(text,'text/xml');
+
+//xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue = document.getElementsByName("name")[0].value;
+xmldoc.getElementsByTagName("name")[0].childNodes[0].nodeValue = document.getElementsByName("name")[0].value;
+//document.write("hii");
+xmldoc.getElementsByTagName('address')[0].childNodes[0].nodeValue=document.getElementsByName('address')[0].value;
+xmldoc.getElementsByTagName('gender')[0].childNodes[0].nodeValue=document.getElementsByName('gender')[0].value;
+xmldoc.getElementsByTagName('language')[0].childNodes[0].nodeValue=document.getElementsByName('language')[0].value;
+xmldoc.getElementsByTagName('city')[0].childNodes[0].nodeValue=document.getElementsByName('city')[0].value;
+
+var xmlstring = new XMLSerializer().serializeToString(xmldoc);
+alert(xmlstring);
+download("ac.xml",xmlstring);
+}
+
+function download(filename,text)
+{
+var element = document.createElement("a");
+element.setAttribute("href","data:text/xml;,"+text);  // comma is imp
+element.setAttribute('download',filename);
+
+
+document.body.appendChild(element);
+element.click();
+
+
+
+}
+
+</script>
+</body>
+</html>
